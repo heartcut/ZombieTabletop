@@ -5,5 +5,37 @@
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+<div>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    diceroll = @roll
+
+</div>
+<div>
+    
+    <div><button @onclick="(() => rolldice(1,4))">d4</button></div>
+    <div><button @onclick="(() => rolldice(1,6))">d6</button></div>
+    <div><button @onclick="(() => rolldice(1,20))">d20</button></div>
+</div>
+
+<div>
+    <div><button @onclick="(() => rolldice(2,4))">2 d4</button></div>
+    <div><button @onclick="(() => rolldice(2,6))">2 d6</button></div>
+    <div><button @onclick="(() => rolldice(2,20))">2 d20</button></div>
+
+</div>
+
+
+@code{
+
+
+    int roll = 0;
+
+    void rolldice(int amount,int dicesides){
+
+        //roll = IndexLogic.GenerateDiceRolls();
+        roll = dicesides;
+        StateHasChanged();
+
+    }
+
+}
