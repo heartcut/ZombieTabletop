@@ -7,11 +7,12 @@
         {
             
             Random rndm = new Random();
+
             int totRoll = 0;
 
-            for (int i=1; i < amount; i++)
+            for (int i=0; i < amount; i++)
             {
-                int dice = rndm.Next();
+                int dice = rndm.Next(1,dicesides+1);
                 totRoll += dice;
             }
 
