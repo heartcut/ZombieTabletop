@@ -31,9 +31,8 @@ Welcome to your new app.
     int roll = 0;
 
     void rolldice(int amount,int dicesides){
-
-        //roll = IndexLogic.GenerateDiceRolls();
-        roll = dicesides;
+        
+        roll = IndexLogic.GenerateDiceRolls(amount,dicesides);
         StateHasChanged();
 
     }
