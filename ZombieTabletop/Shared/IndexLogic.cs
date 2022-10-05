@@ -15,8 +15,7 @@
                 int dice = rndm.Next(1,dicesides+1);
 
                 totRoll += dice;
-            }           
-
+            }         
             return totRoll;
         }
 
