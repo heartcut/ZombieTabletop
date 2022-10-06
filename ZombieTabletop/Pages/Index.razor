@@ -4,37 +4,66 @@
 
 <h1>Hello, world!</h1>
 
+
 Welcome to your new app.
-<div>
+<div class="divcontainer" style="display:grid;grid-template-columns: auto auto auto;text-align:center;">
 
-    diceroll = @roll
+    <div></div>
+    <div>
+        <div>diceroll = @roll</div>
+        <div>adv = @AdvantageType</div>
+        <div>diceamount = @diceamount</div>
 
-</div>
-<div>
+        <input type="number" min="1" max="10" placeholder="1" @bind-value=diceamount /><br />
+
+
+        <input type="radio" name="advtype" id="adv" @onchange="()=>chooseadvantagetype(1)">
+        <label for="adv">Advantage</label>
+        <input type="radio" name="advtype" id="def" @onchange="()=>chooseadvantagetype(0)">
+        <label for="def">Default</label>
+        <input type="radio" name="advtype" id="disadv" @onchange="()=>chooseadvantagetype(-1)">
+        <label for="disadv">Disadvantage</label>
+
+    </div>
+    <div></div>
+    <div>
     
-    <div><button @onclick="(() => rolldice(1,4))">d4</button></div>
-    <div><button @onclick="(() => rolldice(1,6))">d6</button></div>
-    <div><button @onclick="(() => rolldice(1,20))">d20</button></div>
+        
+    </div>
+    <div>
+        <div><button @onclick="(() => rolldice(4))">d4</button></div>
+        <div><button @onclick="(() => rolldice(6))">d6</button></div>
+        <div><button @onclick="(() => rolldice(20))">d20</button></div></div>
+    <div>
+        
+
+    </div>
+
 </div>
 
-<div>
-    <div><button @onclick="(() => rolldice(2,4))">2 d4</button></div>
-    <div><button @onclick="(() => rolldice(2,6))">2 d6</button></div>
-    <div><button @onclick="(() => rolldice(2,20))">2 d20</button></div>
 
-</div>
+
 
 
 @code{
-
-
+    int AdvantageType = 0;
     int roll = 0;
+    int diceamount = 1;
+    void rolldice(int dicesides){
 
-    void rolldice(int amount,int dicesides){
-        
-        roll = IndexLogic.GenerateDiceRolls(amount,dicesides);
+        roll = IndexLogic.GenerateDiceRolls(diceamount,dicesides);
         StateHasChanged();
 
     }
+    void chooseadvantagetype(int a){
 
+        AdvantageType = a;
+        StateHasChanged();
+
+    }
+    void choosediceamount(int amount)
+    {
+        diceamount = amount;
+        StateHasChanged();
+    }
 }
