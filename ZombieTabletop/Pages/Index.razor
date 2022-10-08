@@ -33,14 +33,35 @@ Welcome to your new app.
     <div>
         <div><button @onclick="(() => rolldice(4))">d4</button></div>
         <div><button @onclick="(() => rolldice(6))">d6</button></div>
-        <div><button @onclick="(() => rolldice(20))">d20</button></div></div>
+        <div><button @onclick="(() => rolldice(20))">d20</button></div>
+    </div>
     <div>
         
 
     </div>
 
-</div>
+    
+   
 
+</div>
+<hr style="margin-left: 3%;margin-right: 3%;color:rgb(168, 168, 163)">
+
+<div class="divcontainer" style="display:grid;grid-template-columns: auto auto auto;text-align:center;">
+
+    <div></div>
+    <div>
+        <div><button @onclick="(() => chooseattacklocation())">roll for body part</button></div>
+    </div>
+    <div></div>
+
+
+    <div></div>
+    <div>
+        <div>part : @bodypart</div>
+    </div>
+    <div></div>
+
+</div>
 
 
 
@@ -49,6 +70,7 @@ Welcome to your new app.
     int AdvantageType = 0;
     int roll = 0;
     int diceamount = 1;
+    string bodypart = "";
     void rolldice(int dicesides){
 
         roll = IndexLogic.GenerateDiceRolls(diceamount,dicesides,AdvantageType);
@@ -64,6 +86,11 @@ Welcome to your new app.
     void choosediceamount(int amount)
     {
         diceamount = amount;
+        StateHasChanged();
+    }
+    void chooseattacklocation(){
+
+        bodypart = IndexLogic.DetermineChartRoll(20, -2);
         StateHasChanged();
     }
 }
