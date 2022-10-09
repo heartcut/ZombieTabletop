@@ -73,7 +73,6 @@
             if (chartType == -2) //Unintelligent or non-aimed atk placement roll
             {
                 int dice = rndm.Next(1, dicesides + 1);
-                Console.WriteLine(dice);
 
                 if (dice > 18)
                 {

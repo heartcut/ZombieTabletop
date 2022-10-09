@@ -46,7 +46,7 @@ Welcome to your new app.
 </div>
 <hr style="margin-left: 3%;margin-right: 3%;color:rgb(168, 168, 163)">
 
-<div class="divcontainer" style="display:grid;grid-template-columns: auto auto auto;text-align:center;">
+<div class="divcontainer" style="display:grid;grid-template-columns: auto auto auto;text-align:center;justify-content:center;">
 
     <div></div>
     <div>
@@ -56,11 +56,49 @@ Welcome to your new app.
 
 
     <div></div>
-    <div>
+    <div style="background-color:green;">
         <div>part : @bodypart</div>
     </div>
     <div></div>
 
+    <div style="background-color:blue;"></div>
+    <div style="height:40px;">
+        
+        <svg style="position: relative;left: 50%;-webkit-transform: translateX(-20%);-ms-transform: translateX(-20%);transform: translateX(-20%);fill:@svgheadcolor;">
+            <path d="M 50 0 L 80 0 L 80 30 L 50 30 L 50 0" />
+        </svg>
+    </div>
+       
+         
+    <div style="background-color:red;"></div>
+    <div style="height:40px;">
+        <svg style="position: relative;left: 150%;-webkit-transform: translateX(-20%); -ms-transform: translateX(-20%);transform: translateX(-20%);fill:@svgleftarmcolor;">
+            <path d="M 40 40 L 0 40 L 0 50 L 40 50 L 40 40" />
+        </svg>
+    </div>
+    <div style="height:40px;">
+        <svg style="position: relative;left: 50%;-webkit-transform: translateX(-20%); -ms-transform: translateX(-20%);transform: translateX(-20%);fill:@svgtorsocolor;">
+            <path d="M 50 40 L 80 40 L 80 90 L 50 90 L 50 40" />
+        </svg>
+    </div>
+     <div style="height:40px;">
+        <svg style="position: relative;left: -50%;-webkit-transform: translateX(-20%); -ms-transform: translateX(-20%);transform: translateX(-20%);fill:@svgrightarmcolor;">
+            <path d="M 90 40 L 130 40 L 130 50 L 90 50 L 90 40" />
+        </svg>
+    </div>
+    <div style="height:50px;">
+        <svg style="position: relative;left: 150%;-webkit-transform: translateX(-20%); -ms-transform: translateX(-20%);transform: translateX(-20%);fill:@svgleftlegcolor;">
+            <path d="M 50 100 L 50 150 L 60 150 L 60 100 L 50 100" />
+        </svg>
+    </div>
+    <div></div>
+    <div style="height:50px;">
+
+        <svg style="position: relative;left: -50%;-webkit-transform: translateX(-20%); -ms-transform: translateX(-20%);transform: translateX(-20%);fill:@svgrightlegcolor;">
+            <path d="M 70 100 L 70 150 L 80 150 L 80 100 L 70 100" />
+        </svg>
+
+    </div>
 </div>
 
 
@@ -90,7 +128,45 @@ Welcome to your new app.
     }
     void chooseattacklocation(){
 
+
         bodypart = IndexLogic.DetermineChartRoll(20, -2);
+        svgheadcolor = "black";
+        svgleftarmcolor = "black";
+        svgtorsocolor = "black";
+        svgrightarmcolor = "black";
+        svgleftlegcolor = "black";
+        svgrightlegcolor = "black";
+        switch(bodypart) 
+        {
+            case "Head":
+                svgheadcolor = "red";
+                break;
+            case "Torso":
+                svgtorsocolor = "red";
+                break;
+            case "Left Arm":
+                svgleftarmcolor = "red";
+                break;
+            case "Right Arm":
+                svgrightarmcolor = "red";
+                break;
+            case "Left Leg":
+                svgleftlegcolor = "red";
+                break;
+            case "Right Leg":
+                svgrightlegcolor = "red";
+                break;
+          default:
+            // code block
+            break;
+        }
         StateHasChanged();
     }
+    string svgheadcolor = "black";
+    string svgleftarmcolor = "black";
+    string svgtorsocolor = "black";
+    string svgrightarmcolor = "black";
+    string svgleftlegcolor = "black";
+    string svgrightlegcolor = "black";
+
 }
