@@ -64,7 +64,7 @@
             return 0;
         }  
         
-        public static string DetermineChartRoll(int diceSides, int chartType)
+        public static string DetermineChartRoll(int dicesides, int chartType)
         {
 
             Random rndm = new Random();
@@ -72,28 +72,30 @@
 
             if (chartType == -2) //Unintelligent or non-aimed atk placement roll
             {
-                int dice = rndm.Next(1, diceSides + 1);
+                int dice = rndm.Next(1, dicesides + 1);
+                Console.WriteLine(dice);
+
                 if (dice > 18)
                 {
                     return "Head";
                 }
-                if (dice < 18 || dice > 12)
+                if (dice <= 18 & dice > 12)
                 {
                     return "Torso";
                 }
-                if (dice < 12 || dice > 9)
+                if (dice <= 12 & dice > 9)
                 {
                     return "Left Arm";
                 }
-                if (dice < 9 || dice > 6)
+                if (dice <= 9 & dice > 6)
                 {
                     return "Right Arm";
                 }
-                if (dice < 6 || dice > 3)
+                if (dice <= 6 & dice > 3)
                 {
                     return "Left Leg";
                 }
-                if (dice < 3)
+                if (dice <= 3)
                 {
                     return "Right Leg";
                 }
